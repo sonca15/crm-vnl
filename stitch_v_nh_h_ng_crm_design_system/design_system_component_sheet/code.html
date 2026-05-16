@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yến Sào Vĩnh Hưng CRM - Design System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#d0c5af",
+                        "surface-container-highest": "#eae1d4",
+                        "secondary": "#7b5800",
+                        "primary-fixed": "#ffe088",
+                        "surface-container": "#f5eddf",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#d4af37",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "surface-container-low": "#fbf3e5",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#254188",
+                        "inverse-on-surface": "#f8f0e2",
+                        "primary-fixed-dim": "#e9c349",
+                        "tertiary": "#415ba4",
+                        "on-secondary-fixed": "#271900",
+                        "background": "#fff8f0",
+                        "on-surface-variant": "#4d4635",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-high": "#efe7da",
+                        "on-background": "#1f1b13",
+                        "surface": "#fff8f0",
+                        "surface-bright": "#fff8f0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#5d4200",
+                        "secondary-container": "#fdc34d",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdea6",
+                        "surface-tint": "#735c00",
+                        "primary": "#735c00",
+                        "outline": "#7f7663",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "secondary-fixed-dim": "#f7bd48",
+                        "inverse-surface": "#343027",
+                        "on-secondary-container": "#715000",
+                        "tertiary-container": "#97b0ff",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1f1b13",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#e1d9cc",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#554300",
+                        "on-tertiary-fixed": "#00174b",
+                        "surface-variant": "#eae1d4",
+                        "inverse-primary": "#e9c349"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "sm": "8px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-gutter h-16 bg-surface/60 backdrop-blur-xl border-b border-primary/15 shadow-sm shadow-primary/5">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Yến Sào Vĩnh Hưng</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-primary/5 transition-colors rounded-full cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant p-2 hover:bg-primary/5 transition-colors rounded-full cursor-pointer">settings</span>
+<img alt="Administrator Profile" class="w-8 h-8 rounded-full border border-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdjQBvlGeQgWh2ziEss0u2Cjx1ZDwZDx2Q_vqfQ_g1xUjXHmFp1X-521CL_3I2f4mLXKC0fXn4_gsQ6xvS96At098tnK3VmjC_RCgeiL_N6oF0G-_PV3lMpLP6KzEx_txbGGmYEzPeYa5eF4_J_jq-32hfS94URLSRpz6Fu-rKQzcpCkp3W7kUq2AXQ6BDecuzyDEru5tslRWG4jIEPIUzcH1W1TpQTLgxd4QvSktoc5i2GuALGWWthcmbOKVG5MBaly9s7yX6sR4"/>
+</div>
+</header>
+<div class="flex pt-16">
+<!-- Sidebar Anchor -->
+<aside class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex-col py-lg px-md bg-surface/60 backdrop-blur-xl border-r border-primary/15 shadow-md shadow-primary/5">
+<nav class="flex-1 space-y-base">
+<a class="flex items-center gap-md px-md py-sm bg-secondary-container/30 text-on-secondary-container font-bold rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-lg text-label-lg">Customers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-lg text-label-lg">Orders</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-lg text-label-lg">Reports</span>
+</a>
+</nav>
+<div class="mt-auto space-y-base pt-lg border-t border-outline-variant/20">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-lg text-label-lg">Support</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:text-primary hover:bg-primary/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-lg text-label-lg">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 p-gutter max-w-7xl mx-auto space-y-xl">
+<!-- Hero Header Section -->
+<section class="space-y-md">
+<h1 class="font-display-lg text-display-lg text-primary">Design System</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    A comprehensive UI toolkit for <span class="text-primary font-bold">Yến Sào Vĩnh Hưng CRM</span>. 
+                    This system blends modern glassmorphism with traditional luxury elements, ensuring a premium management experience for high-value bird's nest products.
+                </p>
+</section>
+<!-- Color Palette -->
+<section class="space-y-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">palette</span>
+<h2 class="font-headline-md text-headline-md">Color Palette</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-lg">
+<div class="space-y-sm">
+<div class="h-24 w-full rounded-xl shadow-lg primary-gradient flex items-end p-md text-on-primary">
+<span class="font-label-lg text-label-lg">#D4AF37</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Royal Gold</p>
+</div>
+<div class="space-y-sm">
+<div class="h-24 w-full rounded-xl shadow-lg bg-[#B8860B] flex items-end p-md text-on-primary">
+<span class="font-label-lg text-label-lg">#B8860B</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Warm Gold</p>
+</div>
+<div class="space-y-sm">
+<div class="h-24 w-full rounded-xl shadow-sm border border-outline-variant bg-[#FDFBF7] flex items-end p-md text-[#1E1E10]">
+<span class="font-label-lg text-label-lg">#FDFBF7</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Cream White</p>
+</div>
+<div class="space-y-sm">
+<div class="h-24 w-full rounded-xl shadow-lg bg-[#1E1E10] flex items-end p-md text-surface-container-lowest">
+<span class="font-label-lg text-label-lg">#1E1E10</span>
+</div>
+<p class="font-label-sm text-label-sm font-bold">Charcoal</p>
+</div>
+</div>
+</section>
+<!-- Typography & Components Bento -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Typography Section -->
+<div class="lg:col-span-7 glass-card p-xl rounded-xl space-y-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">text_fields</span>
+<h2 class="font-headline-sm text-headline-sm">Typography Scale</h2>
+</div>
+<div class="space-y-xl">
+<div class="space-y-xs">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-widest">Display Large</span>
+<div class="font-display-lg text-display-lg">The Art of Luxury</div>
+</div>
+<div class="space-y-xs">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-widest">Headline Large</span>
+<div class="font-headline-lg text-headline-lg">Bird's Nest Management</div>
+</div>
+<div class="space-y-xs">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-widest">Headline Medium</span>
+<div class="font-headline-md text-headline-md">Inventory &amp; Stock Tracking</div>
+</div>
+<div class="space-y-xs">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-widest">Body Large</span>
+<div class="font-body-lg text-body-lg">Premium bird’s nest products collected from the heart of the coast, reflecting pure essence and health benefits.</div>
+</div>
+<div class="space-y-xs">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-widest">Label Large</span>
+<div class="font-label-lg text-label-lg">CREATE NEW SHIPMENT</div>
+</div>
+</div>
+</div>
+<!-- Interactive Elements Section -->
+<div class="lg:col-span-5 space-y-lg">
+<!-- Buttons -->
+<div class="glass-card p-xl rounded-xl space-y-lg">
+<h3 class="font-headline-sm text-headline-sm">Button States</h3>
+<div class="flex flex-col gap-md">
+<button class="primary-gradient py-md px-lg rounded-lg text-[#1E1E10] font-label-lg text-label-lg shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                                PRIMARY ACTION
+                            </button>
+<button class="bg-transparent border border-primary py-md px-lg rounded-lg text-primary font-label-lg text-label-lg hover:bg-primary/5 active:scale-95 transition-all">
+                                SECONDARY OUTLINE
+                            </button>
+<button class="bg-transparent py-md px-lg rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:text-primary transition-all">
+                                GHOST BUTTON
+                            </button>
+</div>
+</div>
+<!-- Semantic Badges -->
+<div class="glass-card p-xl rounded-xl space-y-lg">
+<h3 class="font-headline-sm text-headline-sm">Semantic Badges</h3>
+<div class="flex flex-wrap gap-md">
+<span class="px-md py-xs rounded-full bg-green-500/10 text-green-700 font-label-sm text-label-sm">SUCCESSFUL</span>
+<span class="px-md py-xs rounded-full bg-amber-500/10 text-amber-700 font-label-sm text-label-sm">PENDING</span>
+<span class="px-md py-xs rounded-full bg-error/10 text-error font-label-sm text-label-sm">ERROR</span>
+<span class="px-md py-xs rounded-full bg-primary/10 text-primary font-label-sm text-label-sm">PREMIUM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Elements Section -->
+<section class="glass-card p-xl rounded-xl space-y-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">edit_square</span>
+<h2 class="font-headline-sm text-headline-sm">Form Elements</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="space-y-md">
+<label class="font-label-lg text-label-lg text-on-surface-variant block">Input Field</label>
+<input class="w-full bg-white/40 border border-primary/30 rounded-lg py-md px-lg focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all placeholder:text-outline-variant" placeholder="Enter customer name..." type="text"/>
+<p class="font-label-sm text-label-sm text-outline">Example helper text for guidance.</p>
+</div>
+<div class="space-y-md">
+<label class="font-label-lg text-label-lg text-on-surface-variant block">Selection Controls</label>
+<div class="flex flex-col gap-md">
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-primary/30 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">VIP Customer Program</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-5 h-5 rounded border-primary/30 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Enable Notifications</span>
+</label>
+</div>
+</div>
+<div class="space-y-md">
+<label class="font-label-lg text-label-lg text-on-surface-variant block">Radio Options</label>
+<div class="flex flex-col gap-md">
+<label class="flex items-center gap-md cursor-pointer group">
+<input checked="" class="w-5 h-5 border-primary/30 text-primary focus:ring-primary/20" name="plan" type="radio"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Premium Quality (Gold)</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<input class="w-5 h-5 border-primary/30 text-primary focus:ring-primary/20" name="plan" type="radio"/>
+<span class="font-body-md text-body-md group-hover:text-primary transition-colors">Standard Quality</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Example Layout Section -->
+<section class="space-y-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">view_quilt</span>
+<h2 class="font-headline-sm text-headline-sm">Component Application</h2>
+</div>
+<button class="flex items-center gap-sm text-primary font-label-lg">
+                        View All Records
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Glass Card Example 1 -->
+<div class="glass-card rounded-xl overflow-hidden group">
+<div class="relative h-48 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A macro photograph of high-quality bird's nests arranged elegantly on a clean, light cream surface. The lighting is soft and warm, highlighting the translucent textures and intricate fibers of the product. The overall aesthetic is one of extreme luxury, purity, and sophistication, with a golden morning glow casting delicate shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmvUyzL8FbDOO_2D8gDFzeSpUuzU_EaClvYeVTPhWqwVncXBWXGhdibcesxb5XiQQbFpbBcc8BZH86tYSL9el0850ofZDDnhaPe_vf03JzWe21bc3WUuno8tPY4qyGwc3K6IKV32d38SSUPkwaXqWCG2CFl6ZoiweYDDs6QdJ7IIB2dNX2luik-La0tPfrb96s4hWKpnY5WCU35nfp-00jwlbjEncEWvP-bGN0BlaCi1LoyCnDL8W_0UaTTGrr-kDmCPhYl050ftE"/>
+<div class="absolute top-md right-md bg-white/80 backdrop-blur-md px-md py-xs rounded-full font-label-sm text-label-sm text-primary">
+                                PRE-ORDER
+                            </div>
+</div>
+<div class="p-lg space-y-md">
+<h4 class="font-headline-sm text-headline-sm">Huyết Yến Thượng Hạng</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Our most exclusive selection of blood bird's nest, harvested under strict supervision for maximum purity.</p>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant/10">
+<span class="font-headline-sm text-headline-sm text-primary">$1,250.00</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">shopping_cart</span>
+</div>
+</div>
+</div>
+<!-- Glass Card Example 2 (Data focused) -->
+<div class="glass-card rounded-xl p-lg flex flex-col justify-between">
+<div class="space-y-md">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<span class="text-green-600 font-label-sm">+12.5%</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Annual Revenue</h4>
+<div class="font-display-lg text-display-lg">$452.8k</div>
+</div>
+</div>
+<div class="pt-lg">
+<div class="w-full bg-primary/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4"></div>
+</div>
+<p class="font-label-sm text-label-sm mt-sm text-outline">75% of target reached</p>
+</div>
+</div>
+<!-- Glass Card Example 3 (Profile) -->
+<div class="glass-card rounded-xl p-lg flex flex-col items-center text-center space-y-md">
+<div class="relative">
+<img alt="Executive Profile" class="w-20 h-20 rounded-full border-2 border-primary/20 p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0FpyuX5RyrEWU7cmERy1hc7djVj1t5lcLA2Wu8pD1vUO7FYGi-oDWpkZkebb-HLqGep2Mwn1Rde-ewG2g09tRjWjgzCF-_KgqOcxncwup-weKfZo-QoMCGRk4j2zQwqZZOho3UcgGTJWQbRn8Y-BFKoCnHCXfRG_xGzErq6T3b4inuCmkXV7KQ0_bg1zst10VI4kveyg22vkN5Jt5F3WybhjhK2Fgn29LuN7m8JU8l0exnfU9PIXgP6WVA694EO4Tl-QM0DckEHg"/>
+<div class="absolute bottom-0 right-0 w-5 h-5 bg-green-500 border-2 border-surface rounded-full"></div>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm">Trần Vĩnh Hưng</h4>
+<p class="font-label-lg text-label-lg text-primary">Executive Director</p>
+</div>
+<div class="flex gap-md w-full pt-md">
+<button class="flex-1 border border-primary/20 py-sm rounded-lg font-label-sm hover:bg-primary/5 transition-all">MESSAGE</button>
+<button class="flex-1 bg-primary text-on-primary py-sm rounded-lg font-label-sm active:scale-95 transition-all">PROFILE</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer Anchor -->
+<footer class="w-full py-md px-gutter flex flex-col md:flex-row justify-between items-center mt-auto bg-surface-container-low border-t border-outline-variant/20">
+<div class="font-label-lg text-label-lg font-bold text-primary mb-md md:mb-0">Yến Sào Vĩnh Hưng</div>
+<div class="flex gap-lg font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<div class="font-body-sm text-body-sm text-secondary mt-md md:mt-0">
+            © 2024 Yến Sào Vĩnh Hưng. All Rights Reserved.
+        </div>
+</footer>
+</body></html>

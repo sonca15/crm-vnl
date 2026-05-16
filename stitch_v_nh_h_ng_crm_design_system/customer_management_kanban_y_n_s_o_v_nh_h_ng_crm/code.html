@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Imperial Nest CRM - Customer Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "tertiary": "#415ba4",
+                    "on-background": "#1f1b13",
+                    "tertiary-container": "#97b0ff",
+                    "surface-tint": "#735c00",
+                    "on-secondary-container": "#715000",
+                    "primary-fixed": "#ffe088",
+                    "primary-container": "#d4af37",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#e9c349",
+                    "outline": "#7f7663",
+                    "on-tertiary-container": "#254188",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#fbf3e5",
+                    "surface-dim": "#e1d9cc",
+                    "on-surface": "#1f1b13",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdea6",
+                    "on-tertiary-fixed": "#00174b",
+                    "inverse-on-surface": "#f8f0e2",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fff8f0",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#d0c5af",
+                    "surface": "#fff8f0",
+                    "secondary": "#7b5800",
+                    "secondary-container": "#fdc34d",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#735c00",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "tertiary-fixed": "#dbe1ff",
+                    "surface-container-highest": "#eae1d4",
+                    "surface-container-high": "#efe7da",
+                    "on-secondary-fixed": "#271900",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "on-primary-fixed-variant": "#574500",
+                    "secondary-fixed-dim": "#f7bd48",
+                    "on-primary-fixed": "#241a00",
+                    "surface-bright": "#fff8f0",
+                    "on-surface-variant": "#4d4635",
+                    "inverse-primary": "#e9c349",
+                    "inverse-surface": "#343027",
+                    "surface-container": "#f5eddf",
+                    "on-primary-container": "#554300",
+                    "surface-variant": "#eae1d4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "margin-desktop": "48px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "xl": "40px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fff8f0;
+            background-image: radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.03) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .kanban-column {
+            min-height: calc(100vh - 280px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-white/60 dark:bg-surface-container/60 backdrop-blur-xl border-r border-primary/15 flex flex-col py-lg px-md z-50 shadow-[0_0_20px_rgba(212,175,55,0.05)]">
+<div class="mb-xl px-sm">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-primary-container flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">nest_eco_leaf</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight leading-tight">Imperial Nest</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 uppercase tracking-widest">Luxury CRM</p>
+</div>
+</div>
+</div>
+<button class="mb-xl mx-sm py-md px-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-lg text-label-lg rounded-xl shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+            New Order
+        </button>
+<nav class="flex-1 space-y-base">
+<!-- Dashboard Tab (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant/70 font-medium hover:bg-primary/5 hover:text-primary transition-all duration-300 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<!-- Inventory Tab (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant/70 font-medium hover:bg-primary/5 hover:text-primary transition-all duration-300 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+<!-- Customers Tab (Active) -->
+<a class="flex items-center gap-md px-md py-sm text-primary font-bold border-r-4 border-primary bg-primary/5 active:scale-[0.98] transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-lg text-label-lg">Customers</span>
+</a>
+<!-- Orders Tab (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant/70 font-medium hover:bg-primary/5 hover:text-primary transition-all duration-300 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-lg text-label-lg">Orders</span>
+</a>
+<!-- Analytics Tab (Inactive) -->
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant/70 font-medium hover:bg-primary/5 hover:text-primary transition-all duration-300 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto pt-lg border-t border-primary/10 space-y-base">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant/70 font-medium hover:bg-primary/5 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant/70 font-medium hover:bg-primary/5 hover:text-primary transition-all duration-300" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-lg text-label-lg">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="h-20 w-full sticky top-0 bg-white/60 backdrop-blur-xl border-b border-primary/15 flex justify-between items-center px-lg z-40 shadow-[0_4px_12px_rgba(212,175,55,0.03)]">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant/50">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-surface-container/50 border border-primary/10 rounded-full focus:ring-2 focus:ring-primary/30 outline-none transition-all placeholder:text-on-surface-variant/40 font-body-sm text-body-sm" placeholder="Global search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary/5 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-primary/15"></div>
+<div class="flex items-center gap-md">
+<div class="text-right hidden sm:block">
+<p class="font-label-lg text-label-lg text-on-surface leading-tight">Admin Manager</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70">Imperial Nest HQ</p>
+</div>
+<img class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover shadow-sm" data-alt="A professional headshot of a luxury real estate or retail executive, wearing a tailored charcoal suit against a clean, softly lit architectural background. The lighting is sophisticated and warm, capturing a trustworthy and authoritative presence suitable for a premium bird's nest brand management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGYlFfwRD_jj4cuaJ1oaqrog4SUabxYKNWOYTI2r1yBUAAWw9JHB6FajV46Zgw64vMbi8fSVUcSzxd6qRzjJmijByp9rFBysDqlR8njHtrtpE5MW9rtJVqE3iqDtZUc6cIJeEKAR6NgkLxizCYNVPgFusQZRWaWYNCLkvBlHcQBusXb-ru3oLPsbQBa-5eeSduPNNXyKfs2L2xHtU2armO_EbM-pX-x6JMsTWItTgbhIl7MWFKotvEd9sUKHc-_qrzdFUwiWHfMC4"/>
+</div>
+</div>
+</header>
+<!-- Page Canvas -->
+<div class="p-lg space-y-lg">
+<!-- Anti-Duplication Check Section -->
+<div class="glass-card rounded-2xl p-lg flex flex-col md:flex-row items-center gap-lg">
+<div class="flex-1 space-y-base">
+<h2 class="font-headline-sm text-headline-sm text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined">verified_user</span>
+                        Phone Number Anti-Duplication Check
+                    </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70">Verify new leads against our exclusive client database to ensure referral integrity.</p>
+</div>
+<div class="w-full md:w-[400px] relative">
+<input class="w-full pl-lg pr-[120px] py-md bg-white border-2 border-primary/30 rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-display-sm text-body-md outline-none" placeholder="Enter phone number (e.g. +84...)" type="text"/>
+<button class="absolute right-base top-base bottom-base px-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-label-lg text-label-lg rounded-lg shadow-md active:scale-95 transition-all">
+                        Check
+                    </button>
+</div>
+</div>
+<!-- Kanban Board -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter overflow-x-auto pb-lg">
+<!-- Column: New Lead -->
+<div class="flex flex-col gap-md">
+<div class="flex items-center justify-between px-sm py-xs">
+<h3 class="font-label-lg text-label-lg text-primary uppercase tracking-widest flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            New Lead
+                        </h3>
+<span class="bg-primary/10 text-primary px-sm py-base rounded-full text-label-sm font-bold">03</span>
+</div>
+<div class="kanban-column space-y-md bg-surface-container/30 p-sm rounded-2xl border border-primary/5">
+<!-- Card 1 -->
+<div class="glass-card p-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer group active:scale-[0.98]">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-secondary-container/20 text-secondary px-sm py-base rounded text-[10px] font-bold uppercase tracking-tighter">Premium Bird's Nest</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 group-hover:text-primary transition-colors">more_vert</span>
+</div>
+<h4 class="font-headline-sm text-body-lg font-bold text-on-surface mb-xs">Trần Hoàng Nam</h4>
+<p class="font-body-sm text-on-surface-variant/60 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                090 882 1xxx
+                            </p>
+<div class="mt-md pt-sm border-t border-primary/5 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border border-white object-cover" data-alt="Close-up portrait of a professional female customer service representative with a friendly smile, styled in soft corporate attire. The lighting is bright and airy, reflecting a clean and modern professional environment suitable for a high-end luxury brand dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrdVsh5wFzSUrIxhWoW3R5jgNoR62-H6bOH7QoYZwQhBCZQ7TtzMZuHP23RtLd7ThhlavjJW2IjdSYpkSoQ8iMz2MjLBIlahOYddxUL5NVV5c0xeDKwn-6mA1PfCkrKbfUJlx8GLBC8QZKSbY-3yk2qIKNFLyED2D0P1xcQ43dxYuJq26NCZNH962Xf4x5tD6leFHkdRITnOsPwqkMDifMrREUcrTOC4RNdu1clRg7-NdVlaf4YLPh74ZHD37VZv-w56iY7DOrQiI"/>
+</div>
+<span class="text-[10px] text-on-surface-variant/40 font-medium">2h ago</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-secondary-container/20 text-secondary px-sm py-base rounded text-[10px] font-bold uppercase tracking-tighter">Premium Bird's Nest</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 group-hover:text-primary transition-colors">more_vert</span>
+</div>
+<h4 class="font-headline-sm text-body-lg font-bold text-on-surface mb-xs">Lê Thị Mai</h4>
+<p class="font-body-sm text-on-surface-variant/60 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                098 771 2xxx
+                            </p>
+<div class="mt-md pt-sm border-t border-primary/5 flex items-center justify-between">
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border border-white object-cover" data-alt="Portrait of a young male concierge in a professional business setting. He has a warm, welcoming expression, and the lighting is high-key and soft, perfectly matching the luxury CRM aesthetic of high-end bird's nest products." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkdkEtYzx47B4KfVMO0ikfOdlWA-IjvrIxqb7HD2xBFG4_hdO6msyDmlqLyg7lNWaS1naTKCkAGEK3_Hb9OpbjIzaIQjuBo3Ayr39XZpkZouxPFy9vKnYW7NrcJUVDVPB-tLExI5qGCUjouhcEyXVPyBCKW81XSqahZXo_EhaZ5w1XdwyvlQEyDACKLimtYMbXXFfTg28k7o_b0Jp4rcwA5JVlD9aTqoH1bD780oo4RnERsP4R0aaE6DqRAN0SIULTxsMfD1Ppphg"/>
+</div>
+<span class="text-[10px] text-on-surface-variant/40 font-medium">5h ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Consulting -->
+<div class="flex flex-col gap-md">
+<div class="flex items-center justify-between px-sm py-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                            Consulting
+                        </h3>
+<span class="bg-tertiary/10 text-tertiary px-sm py-base rounded-full text-label-sm font-bold">01</span>
+</div>
+<div class="kanban-column space-y-md bg-surface-container/30 p-sm rounded-2xl border border-primary/5">
+<div class="glass-card p-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-secondary-container/20 text-secondary px-sm py-base rounded text-[10px] font-bold uppercase tracking-tighter">Premium Bird's Nest</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 group-hover:text-primary transition-colors">more_vert</span>
+</div>
+<h4 class="font-headline-sm text-body-lg font-bold text-on-surface mb-xs">Nguyễn Văn An</h4>
+<p class="font-body-sm text-on-surface-variant/60 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                091 223 4xxx
+                            </p>
+<div class="mt-md pt-sm border-t border-primary/5 flex items-center justify-between">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-tertiary text-[14px]">chat_bubble</span>
+<span class="text-[10px] text-tertiary font-bold">Replied</span>
+</div>
+<span class="text-[10px] text-on-surface-variant/40 font-medium">1d ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Chasing -->
+<div class="flex flex-col gap-md">
+<div class="flex items-center justify-between px-sm py-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+                            Chasing
+                        </h3>
+<span class="bg-secondary-container/20 text-on-secondary-container px-sm py-base rounded-full text-label-sm font-bold">02</span>
+</div>
+<div class="kanban-column space-y-md bg-surface-container/30 p-sm rounded-2xl border border-primary/5">
+<div class="glass-card p-md rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer group">
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-secondary-container/20 text-secondary px-sm py-base rounded text-[10px] font-bold uppercase tracking-tighter">Premium Bird's Nest</span>
+<span class="material-symbols-outlined text-on-surface-variant/30 group-hover:text-primary transition-colors">more_vert</span>
+</div>
+<h4 class="font-headline-sm text-body-lg font-bold text-on-surface mb-xs">Phạm Minh Tuấn</h4>
+<p class="font-body-sm text-on-surface-variant/60 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                093 445 6xxx
+                            </p>
+<div class="mt-md pt-sm border-t border-primary/5 flex items-center justify-between">
+<div class="flex items-center gap-xs text-error">
+<span class="material-symbols-outlined text-[14px]">alarm</span>
+<span class="text-[10px] font-bold">Follow-up due</span>
+</div>
+<span class="text-[10px] text-on-surface-variant/40 font-medium">3d ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Closed/Success -->
+<div class="flex flex-col gap-md">
+<div class="flex items-center justify-between px-sm py-xs">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-widest flex items-center gap-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                            Closed/Success
+                        </h3>
+<span class="bg-primary-container/20 text-primary px-sm py-base rounded-full text-label-sm font-bold">14</span>
+</div>
+<div class="kanban-column space-y-md bg-surface-container/30 p-sm rounded-2xl border border-primary/5">
+<div class="glass-card p-md rounded-xl border-primary-container/40 shadow-[0_8px_20px_rgba(212,175,55,0.1)] relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[80px] text-primary">verified</span>
+</div>
+<div class="flex justify-between items-start mb-sm">
+<span class="bg-primary-container text-on-primary-container px-sm py-base rounded text-[10px] font-bold uppercase tracking-tighter">Premium Bird's Nest</span>
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+</div>
+<h4 class="font-headline-sm text-body-lg font-bold text-on-surface mb-xs">Hoàng Thu Thủy</h4>
+<p class="font-body-sm text-on-surface-variant/60 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">call</span>
+                                094 556 7xxx
+                            </p>
+<div class="mt-md pt-sm border-t border-primary/10 flex items-center justify-between">
+<div class="flex items-center gap-xs text-primary font-bold">
+<span class="text-[10px]">LIFETIME VIP</span>
+</div>
+<span class="text-[10px] text-on-surface-variant/40 font-medium">Today</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

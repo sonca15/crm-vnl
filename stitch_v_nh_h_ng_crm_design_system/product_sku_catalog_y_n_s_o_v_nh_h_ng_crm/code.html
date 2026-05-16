@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory | Yến Sào Vĩnh Hưng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#735c00",
+                    "on-secondary-fixed-variant": "#5d4200",
+                    "tertiary-container": "#97b0ff",
+                    "inverse-primary": "#e9c349",
+                    "surface-container": "#f5eddf",
+                    "surface-container-highest": "#eae1d4",
+                    "secondary-fixed": "#ffdea6",
+                    "on-secondary-fixed": "#271900",
+                    "tertiary": "#415ba4",
+                    "inverse-surface": "#343027",
+                    "outline-variant": "#d0c5af",
+                    "secondary-container": "#fdc34d",
+                    "surface-container-low": "#fbf3e5",
+                    "surface-bright": "#fff8f0",
+                    "error-container": "#ffdad6",
+                    "surface": "#fff8f0",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "background": "#fff8f0",
+                    "primary-fixed": "#ffe088",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#7b5800",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1f1b13",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-container": "#554300",
+                    "secondary-fixed-dim": "#f7bd48",
+                    "on-primary-fixed": "#241a00",
+                    "on-secondary-container": "#715000",
+                    "on-primary-fixed-variant": "#574500",
+                    "tertiary-fixed": "#dbe1ff",
+                    "primary": "#735c00",
+                    "surface-variant": "#eae1d4",
+                    "surface-container-high": "#efe7da",
+                    "on-tertiary-container": "#254188",
+                    "on-surface-variant": "#4d4635",
+                    "on-surface": "#1f1b13",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#00174b",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#e1d9cc",
+                    "primary-container": "#d4af37",
+                    "inverse-on-surface": "#f8f0e2",
+                    "outline": "#7f7663"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "xl": "40px",
+                    "base": "4px",
+                    "sm": "8px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #ffe088 100%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 z-40 bg-surface-container-lowest/60 backdrop-blur-[12px] border-r border-primary/15 shadow-[4px_0_24px_rgba(115,92,0,0.05)] flex flex-col p-lg hidden md:flex">
+<div class="mb-xl">
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Yến Sào Vĩnh Hưng</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant/70 uppercase tracking-widest mt-xs">Admin Console</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="bg-gradient-to-r from-primary to-secondary-container text-on-primary font-semibold rounded-lg shadow-sm px-4 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventory
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/5 transition-all duration-300 px-4 py-3 rounded-lg flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Customers
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/5 transition-all duration-300 px-4 py-3 rounded-lg flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                Orders
+            </a>
+</nav>
+<div class="pt-lg border-t border-primary/10 space-y-2">
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/5 transition-all duration-300 px-4 py-3 rounded-lg flex items-center gap-3 text-body-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/5 transition-all duration-300 px-4 py-3 rounded-lg flex items-center gap-3 text-body-md font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-full md:w-[calc(100%-288px)] h-16 z-30 bg-surface/60 backdrop-blur-[12px] border-b border-primary/15 shadow-sm flex justify-between items-center px-lg">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-primary/20 rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-body-sm text-body-sm" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded-full transition-all relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-sm pl-md border-l border-primary/10">
+<img alt="Admin Profile" class="w-8 h-8 rounded-full border-2 border-primary/20 object-cover" data-alt="A professional headshot of a middle-aged male administrator with a warm and trustworthy expression, wearing a tailored cream-colored linen shirt. The background is a soft-focus office environment with warm, natural sunlight filtering through, maintaining the premium light-mode aesthetic of the brand with soft highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAchv9yf7CT15V98-OzPvLn8esvwEdmrzziwxCcfCYEZojEv8tt7wL0ET_Z7mJ0dFqZlfTsWQOzMPCyQSJd52p9tFTb1U9U1vJ4l6R7n-aLQ_Z5uaI1UnHnpo0NyAI5WBOZnWOCPWw--pZjct0mFdTDMHq64Ue-f2-tTGYKW3bFEQfUpdyrXqEkWXnYd71eCwB2FSM_Owc5uTfFIHcxEkhTX2KjaH0NwfeMqTJVeL-01y_w3CaFbxO6wnMrdCeBQ8Cj8jLvWxN1Ds"/>
+<span class="hidden lg:block font-label-lg text-label-lg text-on-surface">Administrator</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-xl px-lg md:ml-72 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Product SKU Catalog</h2>
+<p class="text-on-surface-variant font-body-md mt-sm">Manage your premium bird's nest inventory and high-value SKUs.</p>
+</div>
+<button class="gold-gradient text-on-primary font-label-lg text-label-lg px-xl py-3 rounded-full shadow-[0_4px_12px_rgba(115,92,0,0.2)] flex items-center gap-2 hover:opacity-90 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Create New SKU
+                </button>
+</div>
+<!-- Bento Stats Grid (Subtle) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<div class="glass-card p-lg rounded-xl flex items-center gap-lg">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="inventory">inventory</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Total SKUs</p>
+<p class="text-headline-md font-headline-md text-on-surface">142</p>
+</div>
+</div>
+<div class="glass-card p-lg rounded-xl flex items-center gap-lg">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="stars">stars</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Premium Items</p>
+<p class="text-headline-md font-headline-md text-on-surface">24</p>
+</div>
+</div>
+<div class="glass-card p-lg rounded-xl flex items-center gap-lg">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-wider">Inventory Value</p>
+<p class="text-headline-md font-headline-md text-on-surface">$82.4k</p>
+</div>
+</div>
+</div>
+<!-- Main Data Table Container -->
+<div class="glass-card rounded-2xl overflow-hidden shadow-sm">
+<div class="p-lg border-b border-primary/10 flex justify-between items-center bg-surface-container-lowest/40">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Product Listings</h3>
+<div class="flex gap-sm">
+<button class="p-2 border border-primary/20 rounded-lg hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+</button>
+<button class="p-2 border border-primary/20 rounded-lg hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined text-primary" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant">Product</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant">SKU ID</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant">Packaging</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant">Price</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant">Stock Status</th>
+<th class="px-lg py-4 font-label-lg text-label-lg text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/10">
+<!-- Row 1 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 rounded-lg overflow-hidden border border-primary/20 flex-shrink-0">
+<img alt="Yến Tinh Chế" class="w-full h-full object-cover" data-alt="A high-end macro photograph of premium processed bird's nest, white and translucent with a delicate thread-like texture, presented on a minimalist gold-rimmed ceramic plate. The lighting is soft and ethereal, emphasizing the purity and expensive quality of the product against a clean cream-white background with golden morning sunlight shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBi80eqrkPSmXFDQpDsr8YteWuqtPpRgCCMNVcoCUhbzBBETSVZHmY7lvow7ys9K_NFe7hT-SJuco3ZyyGNkRe4XyplQ6J3lll0WUdilDp89PWePl7_J7LYiTYWVN1V_tawLuOtnURmhAlUg_ueyf0MkH9pQucxYd4lkUZfSus-MVmv8_aAWeqvFXBM5vxN2KNiSjE3VM_blLxiK4woae0wKV4B5WESeHYNv0gJ_Ac1HAKbtyGVSmKBjR99N3Gc0psuIu66ff0YHM"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">Yến Tinh Chế Thượng Hạng</p>
+<p class="text-label-sm text-on-surface-variant/70">Top-tier refined swallow nest</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">VH-SKU-001</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">100g Premium Box</td>
+<td class="px-lg py-4 font-label-lg text-label-lg text-primary">$450.00</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        In Stock (42)
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Edit SKU">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded-lg transition-all" title="Delete SKU">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 rounded-lg overflow-hidden border border-primary/20 flex-shrink-0">
+<img alt="Yến Thô" class="w-full h-full object-cover" data-alt="Close-up shot of raw, natural bird's nest in its organic cup-like form, showcasing earthy textures and authentic quality. The nests are arranged artistically on a natural wood surface with warm, golden-hour side lighting that highlights the intricate fibers and premium heritage feel. The overall aesthetic is rustic luxury with deep cream and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV_uU8shbQQw81ojhnH5rxr3GXjsFbLd8jA7V3DAJU9Bkkv20KXiJtAlwMDdnC_L8OJvWuHAFLB2GtHBVzTh3Ixh4_oRaMukiRIq0kTU0KZeiHAtZovMPrWQFWghnBud16642EGGquRyC6AAjF73Wbtn8hGIzzxRLk-udy66eQyxOaQOt0xKSp_HRxQ8oSYpseGghHGTAQlj1krxXptIrXpJPfEB-4NTVNMzFCELLbWYYucRzTS7D3XpkD4uIZoqCIg567HcNX160"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">Yến Thô Đặc Biệt</p>
+<p class="text-label-sm text-on-surface-variant/70">Raw unrefined natural nest</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">VH-SKU-009</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">500g Wooden Gift Set</td>
+<td class="px-lg py-4 font-label-lg text-label-lg text-primary">$1,200.00</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                                        Low Stock (5)
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-lg py-4">
+<div class="flex items-center gap-md">
+<div class="w-14 h-14 rounded-lg overflow-hidden border border-primary/20 flex-shrink-0">
+<img alt="Nước Yến Collagen" class="w-full h-full object-cover" data-alt="A luxurious glass bottle of bird's nest collagen drink with a sleek, minimalist label design featuring gold foil embossing. The bottle is placed on a reflective white surface with soft-focus pink rose petals and crystal-clear water droplets, creating a fresh, elegant, and modern health-conscious aesthetic. The lighting is bright and airy, emphasizing the purity of the ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKH8tdoO6o4LybwEYoI_w_eH__Q051SCWqrv1nx_A0cdw7Lb0HYgcE4p-onCk4l0xsrGkg9r8jZXCIAnhIdF7nJEBntlV3Y96A1fQ8jl_15P6OXoEdVkcWbJfAa2yKTKNXMtho1hYO3IxV_u7s5h8QInq7SA71J4dQyW1bw-zJEBwa4Po174V6KkKCfVeJyAlqh0bC7E9dxgDg8G468U3anPpaapXg_V4aTmpC_hQ4Q0kVilu2FhHj0y5dc5ijX72mvJ4Kom6PIS8"/>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface group-hover:text-primary transition-colors">Nước Yến Collagen</p>
+<p class="text-label-sm text-on-surface-variant/70">Health &amp; Beauty Supplement</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">VH-SKU-042</td>
+<td class="px-lg py-4 font-body-sm text-body-sm text-on-surface-variant">Case of 12 Bottles</td>
+<td class="px-lg py-4 font-label-lg text-label-lg text-primary">$180.00</td>
+<td class="px-lg py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        In Stock (112)
+                                    </span>
+</td>
+<td class="px-lg py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-lg py-4 border-t border-primary/10 flex items-center justify-between bg-surface-container-lowest/40">
+<p class="text-label-sm text-on-surface-variant">Showing 1 to 10 of 142 entries</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary/20 text-on-surface hover:bg-primary hover:text-white transition-all">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:bg-primary/5 transition-all">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:bg-primary/5 transition-all">3</button>
+<span class="px-1 self-end">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded text-on-surface hover:bg-primary/5 transition-all">15</button>
+</div>
+</div>
+</div>
+<!-- Footer Shared Component -->
+<footer class="w-full py-md border-t border-primary/10 mt-xl flex justify-between items-center px-lg">
+<p class="font-label-sm text-label-sm text-surface-tint">© 2024 Yến Sào Vĩnh Hưng - Premium Bird's Nest Management</p>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant/70 hover:text-primary hover:underline underline-offset-4 transition-opacity" href="#">Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant/70 hover:text-primary hover:underline underline-offset-4 transition-opacity" href="#">Documentation</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant/70 hover:text-primary hover:underline underline-offset-4 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant/70 hover:text-primary hover:underline underline-offset-4 transition-opacity" href="#">Contact</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- FAB for quick action (Only for Dashboard/Home equivalent) -->
+<!-- Suppressed on Details/Inventory/Transactional as per rules -->
+</body></html>
