@@ -1,9 +1,20 @@
 import React from 'react';
-import { TrendingUp, Package, Users } from 'lucide-react';
+import { TrendingUp, Package, Users, CheckCircle2, Clock, AlertTriangle, Plus } from 'lucide-react';
+import { mockTasks } from '../mockData';
 import GlassCard from '../components/UI/GlassCard';
 import PageHeader from '../components/UI/PageHeader';
+import Button from '../components/UI/Button';
+import TaskModal from '../components/Tasks/TaskModal';
 
 const Dashboard = () => {
+  const [isTaskModalOpen, setIsTaskModalOpen] = React.useState(false);
+
+  const getPriorityColor = (p) => {
+    if (p === 'high') return 'var(--status-error-text)';
+    if (p === 'medium') return 'var(--status-warning-text)';
+    return 'var(--text-sub)';
+  };
+
   return (
     <div>
       <PageHeader 
@@ -109,6 +120,56 @@ const Dashboard = () => {
           </div>
         </GlassCard>
       </div>
+
+      {/* Task Section */}
+      <div style={{ marginBottom: '32px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <h2 className="text-lg">Công việc cần làm</h2>
+          <Button variant="secondary" icon={Plus} style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => setIsTaskModalOpen(true)}>Thêm công việc</Button>
+        </div>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '20px' }}>
+          {mockTasks.map(task => (
+            <GlassCard key={task.id} style={{ padding: '20px', borderLeft: `4px solid ${getPriorityColor(task.priority)}` }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <div style={{ marginTop: '2px' }}>
+                    {task.status === 'completed' ? 
+                      <CheckCircle2 size={18} color="var(--status-success-text)" /> : 
+                      <Clock size={18} color="var(--text-sub)" />
+                    }
+                  </div>
+                  <div>
+                    <h4 style={{ fontWeight: 500, fontSize: '15px', textDecoration: task.status === 'completed' ? 'line-through' : 'none', color: task.status === 'completed' ? 'var(--text-sub)' : 'inherit' }}>
+                      {task.title}
+                    </h4>
+                    <p className="text-caption" style={{ marginTop: '4px' }}>Khách hàng: {task.leadName}</p>
+                  </div>
+                </div>
+                <div className="badge" style={{ 
+                  backgroundColor: task.priority === 'high' ? 'var(--status-error-bg)' : task.priority === 'medium' ? 'var(--status-warning-bg)' : 'rgba(0,0,0,0.05)',
+                  color: getPriorityColor(task.priority),
+                  fontSize: '10px'
+                }}>
+                  {task.priority === 'high' ? 'GẤP' : task.priority === 'medium' ? 'THƯỜNG' : 'THẤP'}
+                </div>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', borderTop: '1px solid rgba(0,0,0,0.05)', paddingTop: '12px' }}>
+                <span className="text-caption" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <Calendar size={12} /> Deadline: {task.deadline}
+                </span>
+                <button className="btn-ghost" style={{ fontSize: '12px', color: 'var(--primary-accent)', border: 'none', background: 'none', cursor: 'pointer' }}>Chi tiết</button>
+              </div>
+            </GlassCard>
+          ))}
+        </div>
+      </div>
+
+      <TaskModal 
+        isOpen={isTaskModalOpen} 
+        onClose={() => setIsTaskModalOpen(false)} 
+        onSave={() => setIsTaskModalOpen(false)}
+      />
     </div>
   );
 };

@@ -139,8 +139,23 @@ CREATE TABLE tasks (
   title TEXT NOT NULL,
   description TEXT,
   due_date TIMESTAMPTZ,
+  priority TEXT CHECK (priority IN ('high', 'medium', 'low')) DEFAULT 'medium',
   status TEXT DEFAULT 'pending',
   created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Custom Customer Lists: Danh sách khách hàng phân loại thủ công
+CREATE TABLE custom_lists (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  user_id UUID REFERENCES profiles(id),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE TABLE list_members (
+  list_id UUID REFERENCES custom_lists(id) ON DELETE CASCADE,
+  lead_id UUID REFERENCES leads(id) ON DELETE CASCADE,
+  PRIMARY KEY (list_id, lead_id)
 );
 
 -- Subscriptions: Nhắc lịch mua lại theo chu kỳ (mặc định 45 ngày)

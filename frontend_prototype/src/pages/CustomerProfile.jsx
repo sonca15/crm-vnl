@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { mockLeads, mockLogs, mockProducts } from '../mockData';
-import { Phone, MapPin, Briefcase, ChevronLeft, ShoppingBag, Edit3, User, Calendar } from 'lucide-react';
+import { Phone, MapPin, Briefcase, ChevronLeft, ShoppingBag, Edit3, User, Calendar, CheckCircle2, Clock, Plus } from 'lucide-react';
+import { mockLeads, mockLogs, mockProducts, mockTasks } from '../mockData';
 import GlassCard from '../components/UI/GlassCard';
 import Button from '../components/UI/Button';
 import Modal from '../components/UI/Modal';
+import TaskModal from '../components/Tasks/TaskModal';
 
 const CustomerProfile = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const [isLogModalOpen, setIsLogModalOpen] = useState(false);
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
   
   const lead = mockLeads.find(l => l.id === id) || mockLeads[0];
+  const customerTasks = mockTasks.filter(t => t.leadName === lead.name);
 
   return (
     <div>
@@ -79,6 +82,31 @@ const CustomerProfile = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span className="text-caption">Đơn hàng đã mua:</span>
               <span style={{ fontWeight: 600 }}>03 đơn</span>
+            </div>
+          </GlassCard>
+
+          <GlassCard style={{ padding: '24px', background: '#FFFFFF' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <h3 className="text-header">Công việc cần làm</h3>
+              <Plus size={16} style={{ cursor: 'pointer', color: 'var(--primary-accent)' }} onClick={() => setIsTaskModalOpen(true)} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {customerTasks.length > 0 ? customerTasks.map(task => (
+                <div key={task.id} style={{ display: 'flex', gap: '12px', padding: '10px', borderRadius: '8px', backgroundColor: 'rgba(212, 175, 55, 0.05)' }}>
+                  <div style={{ marginTop: '2px' }}>
+                    {task.status === 'completed' ? 
+                      <CheckCircle2 size={16} color="var(--status-success-text)" /> : 
+                      <Clock size={16} color="var(--text-sub)" />
+                    }
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: 500, textDecoration: task.status === 'completed' ? 'line-through' : 'none' }}>{task.title}</div>
+                    <div className="text-caption" style={{ fontSize: '11px' }}>Hạn: {task.deadline}</div>
+                  </div>
+                </div>
+              )) : (
+                <div className="text-caption" style={{ textAlign: 'center', padding: '10px' }}>Không có công việc nào.</div>
+              )}
             </div>
           </GlassCard>
         </div>
@@ -192,6 +220,13 @@ const CustomerProfile = () => {
           </div>
         </div>
       </Modal>
+
+      <TaskModal 
+        isOpen={isTaskModalOpen} 
+        onClose={() => setIsTaskModalOpen(false)} 
+        task={{ leadName: lead.name, leadId: lead.id }}
+        onSave={() => setIsTaskModalOpen(false)}
+      />
     </div>
   );
 };

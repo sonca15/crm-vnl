@@ -16,3 +16,9 @@ export const mockLogs = [
   { id: 'l1', date: '16/05/2026', content: 'Khách hàng quan tâm set quà tặng đối tác. Đã gửi bảng báo giá.' },
   { id: 'l2', date: '14/05/2026', content: 'Nhắc lịch: Khách đã dùng hết yến thô mua đợt trước.' },
 ];
+
+export const mockTasks = [
+  { id: 't1', title: 'Gửi báo giá set quà VIP', deadline: '2026-05-18', priority: 'high', status: 'pending', leadName: 'Trần Thị Minh Thảo' },
+  { id: 't2', title: 'Gọi lại tư vấn yến thô', deadline: '2026-05-17', priority: 'medium', status: 'pending', leadName: 'Nguyễn Hoàng Nam' },
+  { id: 't3', title: 'Giao hàng đơn #1234', deadline: '2026-05-16', priority: 'low', status: 'completed', leadName: 'Lê Hoàng Yến' },
+];

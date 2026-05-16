@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Kanban from './pages/Kanban';
 import CustomerProfile from './pages/CustomerProfile';
 import Products from './pages/Products';
+import Customers from './pages/Customers';
 import GlassCard from './components/UI/GlassCard';
 
 const Sidebar = () => {
@@ -14,7 +15,8 @@ const Sidebar = () => {
 
   const menuItems = [
     { path: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { path: '/kanban', label: 'Khách Hàng', icon: Users },
+    { path: '/customers', label: 'Khách Hàng', icon: Users },
+    { path: '/kanban', label: 'Phễu Bán Hàng', icon: Filter },
     { path: '/products', label: 'Sản Phẩm', icon: Box },
   ];
 
@@ -179,6 +181,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<AppLayout><Dashboard /></AppLayout>} />
+        <Route path="/customers" element={<AppLayout><Customers /></AppLayout>} />
         <Route path="/kanban" element={<AppLayout><Kanban /></AppLayout>} />
         <Route path="/customer/:id" element={<AppLayout><CustomerProfile /></AppLayout>} />
         <Route path="/products" element={<AppLayout><Products /></AppLayout>} />
